@@ -24,9 +24,15 @@ const ContainerCard = styled.div`
   padding: 0 15px;
 `;
 
+const ContainerCardInner = styled.div`
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+`;
+
 const ContainerChild = ({ html }) => (
   <ContainerCard>
-    <span dangerouslySetInnerHTML={{ __html: html }} />
+    <ContainerCardInner dangerouslySetInnerHTML={{ __html: html }} />
   </ContainerCard>
 );
 
@@ -45,7 +51,7 @@ class AnimalCards extends Component {
     let animals = this.props.animals.map((animal, i) => {
 
       if (animal.name === this.props.selectedAnimal) {
-        positionFromLeft = ((i + 1) * 20) - 20;
+        positionFromLeft = (i / widthOfContainer) * 100;
       }
 
       return <ContainerChild html={animal.content} key={`animal-card-${i}`} />
@@ -53,7 +59,7 @@ class AnimalCards extends Component {
 
     return (
       <Container>
-        <ContainerInner style={{width: widthOfContainer + '%', transform: `translate3d(-${ positionFromLeft }%, 0, 0)` }}>
+        <ContainerInner style={{width: widthOfContainer + '%', transform: `translate3d(-${ positionFromLeft * 100 }%, 0, 0)` }}>
           {animals}
         </ContainerInner>
       </Container>

@@ -14,6 +14,7 @@ const ToolBar = styled.div`
   padding: 10px 0 0;
 
   border-top: 1px solid #eee;
+  box-shadow: 1px 4px 20px 0 rgba(0,0,0,.4);
 `;
 
 const ToolBarInner = styled.div`
