@@ -15,11 +15,15 @@ class App extends Component {
   }
 
   changeSelectedAnimal = (name) => {
-    if (this.state.selectedAnimal !== name) {
-      this.setState({
-        selectedAnimal: name,
-      });
+    let selectedName = name;
+
+    if (this.state.selectedAnimal === name) {
+      selectedName = '';
     }
+
+    this.setState({
+      selectedAnimal: selectedName,
+    });
   }
 
   render() {
