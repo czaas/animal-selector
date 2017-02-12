@@ -21,6 +21,7 @@ const ToolBarInner = styled.div`
   display: flex;
   justify-content: space-around;
   padding: 0 0 0 15px;
+  margin: 0 auto;
 `;
 
 

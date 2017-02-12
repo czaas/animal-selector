@@ -5,8 +5,7 @@ const Container = styled.section`
   z-index: 1;
   position: relative;
   overflow: hidden;
-
-  padding-bottom: 90px;
+  height: 100%;
 `;
 
 const ContainerInner = styled.div`
@@ -14,20 +13,31 @@ const ContainerInner = styled.div`
   
   transition: all .25s ease-out;
   overflow: hidden;
+  height: 100%;
 `;
 
 const ContainerCard = styled.div`
   width: 100%;
   max-width: 100%;
 
-  overflow-x: scroll;
-  padding: 0 15px;
+  overflow-y: scroll;
+  position: relative;
+  height: 100%;
 `;
 
 const ContainerCardInner = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+
   width: 100%;
   max-width: 720px;
-  margin: 0 auto;
+  padding: 0 15px 90px;
+
+  @media screen and (min-width: 720px) {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;
 
 const ContainerChild = ({ html }) => (
@@ -37,13 +47,6 @@ const ContainerChild = ({ html }) => (
 );
 
 class AnimalCards extends Component {
-
-  componentWillReceiveProps = (nextProps) => {
-    if (this.props.selectedAnimal !== nextProps.selectedAnimal) {
-      window.scrollTo(0,0);
-    }
-  }
-
   render() {
     let widthOfContainer = (this.props.animals.length * 100);
     let positionFromLeft = 0;
