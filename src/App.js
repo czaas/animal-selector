@@ -10,10 +10,6 @@ class App extends Component {
     selectedAnimal: '',
   }
 
-  componentWillMount = () => {
-    this.changeSelectedAnimal(AnimalData[0].name);
-  }
-
   changeSelectedAnimal = (name) => {
     let selectedName = name;
 
