@@ -48,7 +48,7 @@ const ToolBarAnimalName = styled.div`
 
 const AnimalSelectorAnimal = ({ name, thumbnail, isSelected = false, changeSelectedAnimal }) => (
   <ToolBarAnimal onClick={changeSelectedAnimal.bind(this, name)}>
-    <ToolBarAnimalImg src={thumbnail} style={(isSelected) ? { border: '2px solid #000' } : {}} />
+    <ToolBarAnimalImg src={thumbnail} style={(isSelected) ? { boxShadow: '1px 1px 3px 0 solid #000' } : {}} />
     <ToolBarAnimalName>{name}</ToolBarAnimalName>
   </ToolBarAnimal>
 );
