@@ -10,16 +10,16 @@ class App extends Component {
     selectedAnimal: '',
   }
 
-  componentWillMount = () => {
-    this.changeSelectedAnimal(AnimalData[0].name);
-  }
-
   changeSelectedAnimal = (name) => {
-    if (this.state.selectedAnimal !== name) {
-      this.setState({
-        selectedAnimal: name,
-      });
+    let selectedName = name;
+
+    if (this.state.selectedAnimal === name) {
+      selectedName = '';
     }
+
+    this.setState({
+      selectedAnimal: selectedName,
+    });
   }
 
   render() {
